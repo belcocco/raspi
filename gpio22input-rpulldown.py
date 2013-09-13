@@ -7,7 +7,7 @@ from time import sleep
 #Inizializzazioni
 GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
-ledPins=[8,11,27]  #Led rosso, verde, giallo
+ledPins=[9,10,11]  #Led rosso, verde, giallo
 buttonPin=22
 for a in ledPins:
 	GPIO.setup(a,GPIO.OUT)

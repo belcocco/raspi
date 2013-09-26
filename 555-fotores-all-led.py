@@ -47,13 +47,13 @@ while 1:
                #Accendi tutti i led
 	                for a in ledPinsfotores:
         	                GPIO.output(a, True)
-                	        sleep(0.01)
+                	        sleep(0.1)
                         	ledOnfotores=False
 				luceIn=False
 	        #Spegne tutti i led
                 for a in ledPinsfotores:
                         GPIO.output(a, False)
-                        sleep(0.01)
+                        sleep(0.1)
                         ledOnfotores=False
 
         #Guarda input da 555
@@ -65,18 +65,19 @@ while 1:
                 if buttonIn==True:
                         ledOn555=True
                         print "Accendi i LED----> buttonIn=",buttonIn
-                if ledOn555==True and buttonIn==True:
+#                if ledOn555==True and buttonIn==True:
                #Accendi tutti i led
                         for a in ledPins555:
                                 GPIO.output(a, True)
-				sleep(0.01)
+#				sleep(0.01)
                                 ledOn555=False
                                 buttonIn=False
                 #Spegne tutti i led
-                for a in ledPins555:
-                        GPIO.output(a, False)
-                        sleep(0.01)
-                        ledOn555=False
+                else:
+			for a in ledPins555:
+	                        GPIO.output(a, False)
+#				sleep(0.01)
+                        	ledOn555=False
 
 
 

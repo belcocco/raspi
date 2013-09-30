@@ -33,7 +33,7 @@ def read_temp_raw():
 	f.close()
 	return lines
 
-#Eventualmente sostituisce la def di cui sopra
+#Se la def di cui sopra NON dovesse funzionare, sostituire con quanto segue:
 #    def read_temp_raw():
 #    	catdata = subprocess.Popen(['cat',device_file], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 #    	out,err = catdata.communicate()

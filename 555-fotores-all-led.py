@@ -11,7 +11,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
 ################################### Inizializzazioni
-GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 buttonIn=False
 luceIn=False
@@ -33,53 +32,55 @@ for a in ledPinsfotores:
 	sleep(0.1)
 
 ################################### Loop di lavoro
-while 1:
-	#Guarda se BUIO o LUCE
-	#while
-	if ledOnfotores==False and luceIn==False:
-       	        luceIn=GPIO.input(fotoresIn)  #Esce con logica pull-up True ovvero con pulsante chiuso=input 0=True
+try:
+	while 1:
+		#Guarda se BUIO o LUCE
+		#while
+		if ledOnfotores==False and luceIn==False:
+       	        	luceIn=GPIO.input(fotoresIn)  #Esce con logica pull-up True ovvero con pulsante chiuso=input 0=True
                                                 #con fotoresistenza Luce presente=input 0=True
 #    	        sleep(0.01)
-	        if luceIn==True:
-			ledOnfotores=True
-			print "Accendi i LED----> luceIn=",luceIn
-		if ledOnfotores==True and luceIn==True:
-               #Accendi tutti i led
-	                for a in ledPinsfotores:
-        	                GPIO.output(a, True)
-                	        sleep(0.1)
+	        	if luceIn==True:
+				ledOnfotores=True
+				print "Accendi i LED----> luceIn=",luceIn
+			if ledOnfotores==True and luceIn==True:
+               		#Accendi tutti i led
+	                	for a in ledPinsfotores:
+        	                	GPIO.output(a, True)
+                	        	sleep(0.1)
+                        		ledOnfotores=False
+					luceIn=False
+	        	#Spegne tutti i led
+                	for a in ledPinsfotores:
+                        	GPIO.output(a, False)
+                        	sleep(0.1)
                         	ledOnfotores=False
-				luceIn=False
-	        #Spegne tutti i led
-                for a in ledPinsfotores:
-                        GPIO.output(a, False)
-                        sleep(0.1)
-                        ledOnfotores=False
 
         #Guarda input da 555
         #while
-	if ledOn555==False and buttonIn==False:
-                buttonIn=GPIO.input(ic555In)  #Esce con logica pull-up True ovvero con pulsante chiuso=input 0=True
-                                                #con bottone pigiato=input 0=True
-#               sleep(0.01)
-                if buttonIn==True:
-                        ledOn555=True
-                        print "Accendi i LED----> buttonIn=",buttonIn
+		if ledOn555==False and buttonIn==False:
+                	buttonIn=GPIO.input(ic555In)  #Esce con logica pull-up True ovvero con pulsante chiuso=input 0=True
+                        	                        #con bottone pigiato=input 0=True
+#               	sleep(0.01)
+                	if buttonIn==True:
+                        	ledOn555=True
+                        	print "Accendi i LED----> buttonIn=",buttonIn
 #                if ledOn555==True and buttonIn==True:
-               #Accendi tutti i led
-                        for a in ledPins555:
-                                GPIO.output(a, True)
-#				sleep(0.01)
-                                ledOn555=False
-                                buttonIn=False
+               		#Accendi tutti i led
+                        	for a in ledPins555:
+                                	GPIO.output(a, True)
+#					sleep(0.01)
+                                	ledOn555=False
+                                	buttonIn=False
                 #Spegne tutti i led
-                else:
-			for a in ledPins555:
-	                        GPIO.output(a, False)
-#				sleep(0.01)
-                        	ledOn555=False
-
-
+                	else:
+				for a in ledPins555:
+	                        	GPIO.output(a, False)
+#					sleep(0.01)
+                        		ledOn555=False
+except KeyboardInterrupt:
+	print "CIAO !"
+	GPIO.cleanup()
 
 
 

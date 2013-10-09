@@ -8,7 +8,6 @@ import glob
 import time
 
 import RPi.GPIO as GPIO
-from time import sleep
 ################################### Inizializzazioni
 #Carica i moduli necessari al DS18B20
 os.system('modprobe w1-gpio')
@@ -21,7 +20,7 @@ ledPinsTemp=[24,23,18]  # 3 Led per allarme temperatura
 for a in ledPinsTemp:
         GPIO.setup(a,GPIO.OUT)
         GPIO.output(a, False)   #Spegne i 3 led
-        sleep(0.1)
+        time.sleep(0.1)
      
 base_dir = '/sys/bus/w1/devices/'
 device_folder = glob.glob(base_dir + '28*')[0]
@@ -52,19 +51,34 @@ def read_temp():
 		temp_c = float(temp_string) / 1000.0
 		temp_f = temp_c * 9.0 / 5.0 + 32.0
 
-	        #Accendi tutti i led
+	        #Accendi e spegni ritmicamente tutti i led in caso di allarme (superamento soglia di 28°C)
 		if temp_c >= 28:
         	        for a in ledPinsTemp:
                 	        GPIO.output(a, True)
-                                sleep(0.1)
+                                time.sleep(0.1)
+                                ledOnTemp=False
+			#time.sleep(0.3)
+                        for a in ledPinsTemp:
+                                GPIO.output(a, False)
+                                time.sleep(0.1)
                                 ledOnTemp=False
                 #Spegne tutti i led
         	else:
                 	for a in ledPinsTemp:
                         	GPIO.output(a, False)
-                        	sleep(0.1)
+                        	time.sleep(0.1)
                         	ledOnTemp=False
 		return temp_c, temp_f
-while True:
-	print(read_temp())
-	time.sleep(1)
+try:
+	while True:
+		print(read_temp())
+		time.sleep(1)
+
+except KeyboardInterrupt:
+        print " "
+        print "Ciao !"
+        GPIO.setwarnings(False)
+        GPIO.cleanup()
+GPIO.setwarnings(False)
+GPIO.cleanup()
+

@@ -7,11 +7,24 @@ from time import sleep
 GPIO.cleanup()
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(4,GPIO.OUT)
+GPIO.setup(11,GPIO.OUT)
+GPIO.setup(23,GPIO.OUT)
 
-while 1:
-	GPIO.output(4,True)
-	sleep(0.5)
-	GPIO.output(4,False)
-	sleep(3)
+try:
+	while 1:
+		GPIO.output(11,True)
+		GPIO.output(23,True)
+		sleep(0.5)
+		GPIO.output(11,False)
+		GPIO.output(23,False)
+		sleep(0.3)
+
+except KeyboardInterrupt:
+        print " "
+        print "Ciao !"
+        GPIO.setwarnings(False)
+        GPIO.cleanup()
+GPIO.setwarnings(False)
+GPIO.cleanup()
+
 

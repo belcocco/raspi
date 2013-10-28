@@ -3,23 +3,30 @@
 # -*- coding: cp1252 -*-
 #Raspberry Pi - GPIO interface
 #Sensore di temperatura DS18B40
+#Quando la Temperatura supera i 26 °C la ventola è in funzione.
+#Se la temperatura scende al di sotto dei 26 °C la ventola di raffreddamento viene fermata.
+#E' obbligatorio collegare con il cavo il GPIO 4 con il pin di mezzo del componente.
+#Il GPIO 4 viene utilizzato dai driver per leggere le temperature.
+#SOLO così funziona !!!
 import os
 import glob
 import time
-
-import RPi.GPIO as GPIO
+import RPIO
 ################################### Inizializzazioni
 #Carica i moduli necessari al DS18B20
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 #Set per GPIO output
-GPIO.cleanup()
-GPIO.setmode(GPIO.BCM)
+RPIO.setmode(RPIO.BCM)
+temperatura=26.74
 ledOnTemp=False
-ledPinsTemp=[24,23,18]  # 3 Led per allarme temperatura
+ledPinsTemp=[24,23]  # 2 Led per segnalazione allarme temperatura
+ledPWM=18
+RPIO.setup(ledPWM,RPIO.OUT)
+RPIO.output(ledPWM, False)   #Spegne la ventola perchè siamo all'inizio
 for a in ledPinsTemp:
-        GPIO.setup(a,GPIO.OUT)
-        GPIO.output(a, False)   #Spegne i 3 led
+        RPIO.setup(a,RPIO.OUT)
+        RPIO.output(a, False)   #Spegne i 2 led
         time.sleep(0.1)
      
 base_dir = '/sys/bus/w1/devices/'
@@ -52,22 +59,24 @@ def read_temp():
 		temp_f = temp_c * 9.0 / 5.0 + 32.0
 
 	        #Accendi e spegni ritmicamente tutti i led in caso di allarme (superamento soglia di 28°C)
-		if temp_c >= 28:
+		if temp_c >= temperatura:
         	        for a in ledPinsTemp:
-                	        GPIO.output(a, True)
+                	        RPIO.output(a, True)
                                 time.sleep(0.1)
                                 ledOnTemp=False
+                	RPIO.output(ledPWM, True) #Accende la ventola per raffreddare
 			#time.sleep(0.3)
                         for a in ledPinsTemp:
-                                GPIO.output(a, False)
+                                RPIO.output(a, False)
                                 time.sleep(0.1)
                                 ledOnTemp=False
-                #Spegne tutti i led
+                #Spegne tutti i led ed accende la ventola per il raffreddamento
         	else:
                 	for a in ledPinsTemp:
-                        	GPIO.output(a, False)
+                        	RPIO.output(a, False)
                         	time.sleep(0.1)
                         	ledOnTemp=False
+                	RPIO.output(ledPWM, False) #Spegne la ventola perchè la temperatura è sotto i 26 °C
 		return temp_c, temp_f
 try:
 	while True:
@@ -77,8 +86,6 @@ try:
 except KeyboardInterrupt:
         print " "
         print "Ciao !"
-        GPIO.setwarnings(False)
-        GPIO.cleanup()
-GPIO.setwarnings(False)
-GPIO.cleanup()
+        RPIO.cleanup()
+RPIO.cleanup()
 

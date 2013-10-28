@@ -1,30 +1,25 @@
 #!/usr/bin/env python
 #Raspberry Pi - GPIO interface
-#Led flashing 1 sec
-import RPi.GPIO as GPIO
+#Relay 
+
+import RPIO
 from time import sleep
 
-GPIO.cleanup()
+PINOUT=11
+RPIO.setup(PINOUT, RPIO.OUT)
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(11,GPIO.OUT)
-GPIO.setup(23,GPIO.OUT)
 
 try:
 	while 1:
-		GPIO.output(11,True)
-		GPIO.output(23,True)
+		RPIO.output(PINOUT,True)
+		sleep(1)
+		RPIO.output(PINOUT,False)
 		sleep(0.5)
-		GPIO.output(11,False)
-		GPIO.output(23,False)
-		sleep(0.3)
 
 except KeyboardInterrupt:
         print " "
         print "Ciao !"
-        GPIO.setwarnings(False)
-        GPIO.cleanup()
-GPIO.setwarnings(False)
-GPIO.cleanup()
+        RPIO.cleanup()
+RPIO.cleanup()
 
 

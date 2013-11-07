@@ -8,9 +8,9 @@ import RPIO, time, datetime
 ################################ INIZIALIZZAZIONI
 INTtasto1 = 24      # define GPIO number for interrupt tasto 1
 INTtasto2 = 23      # define GPIO number for interrupt tasto 2
-led1=7      # define GPIO number for output Led 1
-led2=8      # define GPIO number for output Led 2
-led3=25      # define GPIO number for output Led 3
+led1=14      # define GPIO number for output Led 1
+led2=15     # define GPIO number for output Led 2
+led3=10      # define GPIO number for output Led 3
 
 lastTime = time.time()
 dMax = 0;
@@ -40,36 +40,7 @@ inc = 1
 
 #ISR alla pressione del tasto 1
 def gpio_callback1(gpio_id, val):
-	global inc, state, lastTime, dMax, dMin, dSum, dCount, dFirst
-	if (inc == 1):
-		state = state + 1;
-	else:
-		state = state - 1;
-
-	# reached the max state, time to go back (decrement)
-	if (state == 3):
-		inc = 0
-	# reached the min state, go back up (increment)
-	elif (state == 0):
-		inc = 1
-
-	if (state == 1):
-		RPIO.output(led1, RPIO.HIGH)
-		RPIO.output(led2, RPIO.LOW)
-		RPIO.output(led3, RPIO.LOW)
-	elif (state == 2):
-		RPIO.output(led1, RPIO.HIGH)
-		RPIO.output(led2, RPIO.HIGH)
-		RPIO.output(led3, RPIO.LOW)
-	elif (state == 3):
-		RPIO.output(led1, RPIO.HIGH)
-		RPIO.output(led2, RPIO.HIGH)
-		RPIO.output(led3, RPIO.HIGH)
-	else:
-		RPIO.output(led1, RPIO.LOW)
-		RPIO.output(led2, RPIO.LOW)
-		RPIO.output(led3, RPIO.LOW)
-	print("Tasto 1 Premuto", state)
+	print("Tasto 1 Premuto")
 
 #ISR alla pressione del tasto 2 di Reset
 def gpio_callback2(gpio_id, val):
@@ -121,7 +92,19 @@ RPIO.wait_for_interrupts(threaded=True)   # non-blocking, separate thread
 #Loop principale che non fa niente. Aspetta e basta.
 try:
 	while (1):
-   		time.sleep(1)  #aspetta 
+        	
+                RPIO.output(led1, RPIO.HIGH)
+   		time.sleep(0.2)  #aspetta 
+                RPIO.output(led2, RPIO.HIGH)
+   		time.sleep(0.2)  #aspetta 
+                RPIO.output(led3, RPIO.HIGH)
+   		time.sleep(12)  #aspetta 
+                RPIO.output(led1, RPIO.LOW)
+   		time.sleep(0.2)  #aspetta 
+                RPIO.output(led2, RPIO.LOW)
+   		time.sleep(0.2)  #aspetta 
+                RPIO.output(led3, RPIO.LOW)
+   		time.sleep(0.2)  #aspetta 
 
 except KeyboardInterrupt:
         print " "

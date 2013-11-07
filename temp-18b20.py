@@ -18,7 +18,7 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 #Set per GPIO output
 RPIO.setmode(RPIO.BCM)
-temperatura=26.74
+temperatura=25.687
 ledOnTemp=False
 ledPinsTemp=[24,23]  # 2 Led per segnalazione allarme temperatura
 ledPWM=18
@@ -58,7 +58,7 @@ def read_temp():
 		temp_c = float(temp_string) / 1000.0
 		temp_f = temp_c * 9.0 / 5.0 + 32.0
 
-	        #Accendi e spegni ritmicamente tutti i led in caso di allarme (superamento soglia di 28°C)
+	        #Accendi e spegni ritmicamente tutti i led in caso di allarme (superamento soglia di temperatura)
 		if temp_c >= temperatura:
         	        for a in ledPinsTemp:
                 	        RPIO.output(a, True)
@@ -76,8 +76,8 @@ def read_temp():
                         	RPIO.output(a, False)
                         	time.sleep(0.1)
                         	ledOnTemp=False
-                	RPIO.output(ledPWM, False) #Spegne la ventola perchè la temperatura è sotto i 26 °C
-		return temp_c, temp_f
+                	RPIO.output(ledPWM, False) #Spegne la ventola perchè la temperatura è sotto soglia
+                	return temp_c, temp_f
 try:
 	while True:
 		print(read_temp())

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it">
+<head>
+	<title>Progetto Discar Device</title>
+	<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1" />
+	<meta http-equiv="Content-Language" content="it" />
+	<meta name="Robots" content="All" />
+	<meta name="Keywords" content="javascript" />
+	<meta name="Owner" content="raga" /> 
+	<meta name="Author" content="raga" />  
+	<meta name="Copyleft" content="raga" />
+	 <!-- CSS stylesheets -->
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <link rel="stylesheet" href="assets/knobKnob/knobKnob.css" />
+        
+	</head>
+<body>
+<a href="http://pippo.it"><img src="logo-raspi.jpg" alt="Discar Device" border="0" width="50"height="50" /></a><br /><h1 style="color:#FFFFFF">Discar Device Main Menu</h1>
+
+<h2><a href="htdocs/app/gpio-header/index.html">GPIO Header</a></h2>
+<p style="color:#FFFFFF">Control and Debug the Raspberry Pi GPIO with a display which looks like the physical header.</p>
+
+<h2><a href="htdocs/app/gpio-list/index.html">GPIO List</a></h2>
+<p style="color:#FFFFFF">Control and Debug the Raspberry Pi GPIO ordered in a single column.</p>
+
+<h2><a href="htdocs/app/serial-monitor/index.html">Serial Monitor</a></h2>
+<p style="color:#FFFFFF">Use the browser to play with Serial interfaces configured in WebIOPi.</p>
+
+<h2><a href="htdocs/app/devices-monitor/index.html">Devices Monitor</a></h2>
+<p style="color:#FFFFFF">Control and Debug devices and circuits wired to your Pi and configured in WebIOPi.</p>
+
+<h2><a href="htdocs/app/graphics-field/index.html">Graphics of Field</a></h2>
+<p style="color:#FFFFFF">View run-time display and settings of Discar Device.</p>
+
+</body>
+</html>

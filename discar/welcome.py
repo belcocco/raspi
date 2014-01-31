@@ -43,7 +43,7 @@ sensor_temp_file = device_folder + '/w1_slave'
 from ast import literal_eval
 import lcddriver1
 from subprocess import *
-import time
+#import time
 
 lcd = lcddriver1.lcd()
 
@@ -130,44 +130,10 @@ def read_temp():
                         RPIO.output(ledPWM, False) #Spegne la ventola perchè la temperatura è sotto soglia
                 return temp_c#, temp_f
 
-############################## LOOP PRINCIPALE
-try:
-        ip_addr = run_cmd(cmd)
-        ip_addr = "  IP: " + ip_addr.rstrip("\n") + "   "
-        print ip_addr
-        lcd.lcd_display_string(ip_addr, 2)      #display ip address on line 2
-
-        while True:
-#                date_raw = read_date_raw()	#read date (as List from file)
-#                time_raw = read_time_raw()	#read time (as List from file)
-#                RTC_date = os.system('date')
-#                print RTC_date
-#                date_pure = date_raw[0]
-#                time_pure = time_raw[0]
-#                date_time = RTC_date
-                today_raw = datetime.datetime.now()
-                today_pure = today_raw.strftime(" %y-%m-%Y   %H:%M")
-                temp_c_raw = read_temp()	#read temp (as float from file)
-                temp_c_ = repr(temp_c_raw)       #convert to string
-                temp_c_pure = "   Temp. " + temp_c_[:4] + " C"	         #only one decimal
-# DEBUG                print date_time, "Temp.:",temp_c_pure
-                #Visualizza data e ora
-                lcd.lcd_display_string(today_pure, 1)
-#                lcd.lcd_display_string(RTC_date[:20], 1)
-                lcd.lcd_display_string(temp_c_pure , 3)
-                lcd.lcd_display_string("  Premi Tasto Rosso ", 4)
-                time.sleep(1)
-#try:
-#        while True:
-#                print(read_temp())
-#                time.sleep(1)
 
 
-
-except KeyboardInterrupt:
-        print " "
-        print "Ciao !"
-#        RPIO.cleanup()
-#RPIO.cleanup()
-
+#ip_addr = run_cmd(cmd)
+#ip_addr = "  IP: " + ip_addr.rstrip("\n") + "   "
+#print ip_addr
+#lcd.lcd_display_string(ip_addr, 2)      #display ip address on line 2
 

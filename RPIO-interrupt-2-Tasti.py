@@ -6,11 +6,11 @@
 import RPIO, time, datetime
 
 ################################ INIZIALIZZAZIONI
-INTtasto1 = 24      # define GPIO number for interrupt tasto 1
-INTtasto2 = 23      # define GPIO number for interrupt tasto 2
-led1=14      # define GPIO number for output Led 1
-led2=15     # define GPIO number for output Led 2
-led3=10      # define GPIO number for output Led 3
+INTtasto1 = 11      # define GPIO number for interrupt tasto 1
+INTtasto2 = 9      # define GPIO number for interrupt tasto 2
+led1=18      # define GPIO number for output Led 1
+led2=23     # define GPIO number for output Led 2
+led3=24      # define GPIO number for output Led 3
 
 lastTime = time.time()
 dMax = 0;

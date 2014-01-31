@@ -1,2 +1,2 @@
 #!/bin/bash
-python -m /home/raga/raspi/i2c/lcd-welcome.py
+python -m /home/raga/raspi/discar/lcd-welcome.py

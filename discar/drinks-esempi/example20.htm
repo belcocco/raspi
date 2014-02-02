@@ -1,0 +1,20 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+		<script> 
+			var ajax = new Ajax();
+			function onload(){ 
+				ajax.send(document.forms[0], 'server20.php', "test_div");			}		 
+		</script> 
+	</head> 
+	<body onload="setInterval(onload, 2000);"> 
+		<form style="width:100%; height:300px;"> 
+			<switch id="sw" name="sw" style="float:left;"></switch> 
+			<slider id="sl" name="sl" style="float:left;" width="300"></slider> 
+			<knob id="kn" name="kn" style="float:left;" radius="50"></knob>	 
+		</form> 
+		<led id="led1" style="float:left;"></led> 
+		<switch type="side" id="sw2" style="float:left;" onchange="if(this.value==1){ajax.addCall(' if(ajaxobj.responseText==\'1\'){led1.on();}'); ajax.load('server20.php?get', null);}"></switch> 
+		<div id="test_div"></div> 
+	</body> 
+</html> 

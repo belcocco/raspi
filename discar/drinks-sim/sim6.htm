@@ -1,0 +1,28 @@
+
+	<head>
+		<script type="text/Javascript" src="Drinks.js"></script>
+		
+	</head>
+	<body style="background-image: url(darkdenim3.png);">
+		<div style="background-image: linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -o-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -moz-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -webkit-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -ms-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);  width:550px; height:350px; border-radius:20px; box-shadow:2px 2px 3px #fff;">
+		<knob type="loop" id="kl" radius="40" style="float:left;"></knob>
+		<knob type="digital" id="kd" radius="40" style="float:left;">
+			<option value="70">70</option>
+			<option value="25">25</option>
+			<option value="49">49</option>
+			<option value="15">15</option>
+			<option value="100">100</option>
+		</knob>
+		<knob type="analog" id="ka" radius="40" style="float:left;" onchange="an1.value=this.value; th1.value=this.value;"></knob>
+		<switch type="toggle" id="lsw" style="float:left; margin-top:20px;" onchange="led1.toggle();"></switch>
+		<led type="round" id="led1" radius="10" style="float:left; margin-top:40px;" color="red"></led>
+		<display type="analog" id="an1" style="float:left; margin-left:100px;" text="Oven"></display>
+		<display type="thermo" id="th1" style="float:left; margin-top:-20px;"  color="red"></display>
+		</div>
+	</body>
+
+</html>

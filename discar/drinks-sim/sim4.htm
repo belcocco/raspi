@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<script type="text/Javascript" src="Drinks.js"></script>
+	</head>
+	<body style="background-image:url(polyester.png);">
+		<switch type="circle" id="sw1" style="float:left;" onchange="if(this.value==1){setTimeout(function(){sw2.on();}, 1000); }"></switch>
+		<switch type="side" id="sw2"  style="float:left;" onchange="if(this.value==1){setTimeout(function(){sw3.on();}, 1000); }"></switch> 
+		<switch type="rect" id="sw3" style="float:left;" text="press" onchange="if(this.value==1){setTimeout(function(){sw4.on();}, 1000); }"></switch>
+		<arcled id="sw4" style="float:left;" onchange="if(this.value==1){setTimeout(function(){sw5.on();}, 1000);}"></arcled>
+		<switch type="rocker" id="sw5" width="70" height="100" style="float:left;" onchange="if(this.value==1){setTimeout(function(){sw6.on();}, 1000);}"></switch>
+		<switch type="toggle" id="sw6" width="100" height="100" style="float:left;" onchange="if(this.value==1){setTimeout(function(){lv1.value=250;}, 1000);}"></switch>
+		<display type="level" id="lv1" style="float:left;" max_range="200" align="horizontal" autoscale="true" onchange="if(this.value==250){setTimeout(function(){lv2.value=250;}, 1000);}"></display>
+		<display type="level" id="lv2" style="float:left;" max_range="200" align="horizontal" topdown=true autoscale="true"></display>
+		<div id="test1"></div>
+	</body>
+</html>

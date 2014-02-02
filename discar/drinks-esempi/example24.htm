@@ -1,0 +1,14 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+	</head> 
+	<body> 
+		<display style="float:left; position:relative;" id="gau1" max_range="6000" text="rpm" onchange="document.getElementById('t1').value=this.value;"> 
+			<input type="text" id="t1" style="position:absolute; z-index:5; top:170px; width:60px; left:87px;"> 
+			<img src="pink.png" width="32" height="32" style="position:absolute; z-index:5; top:140px; left:100px;"> 
+		</display> 
+		<display id="gau2" style="float:left; position:relative;" radius=100 max_range="1" divisions="10" value="0.8" color="blue"> 
+			<img src="fuelIcon.png" width="32" height="32" style="position:absolute; z-index:5; top:160px; left:105px;"> 
+		</display> 
+	</body> 
+</html> 

@@ -1,0 +1,15 @@
+<html> 
+		<head> 
+			<script type="text/javascript" src="Drinks.js"></script> 
+			<script> 
+				function create(){ 
+					var gauge = Drinks.createElement("display", {"id":"gau1", "min_range":"-50", "max_range":"50","style":"float:left; margin-top:50px;"}); 
+					Drinks.appendChild('body', gauge);		 
+				} 
+			</script> 
+		</head> 
+		<body id="body"> 
+			<knob id="k1" style="float:left;" onchange="if(Drinks.getElementById('gau1')){gau1.value=this.value;}"></knob>	 
+			<input type="button" onclick="create();" value="click"/> 
+		</body> 
+	</html> 

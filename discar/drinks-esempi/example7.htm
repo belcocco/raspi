@@ -1,0 +1,22 @@
+<html> 
+	<head> 
+		<script type="text/javascript" src="Drinks.js"></script> 
+		<script> 
+			function turnsOn(){ 
+				for(var i in Drinks.leds){ 
+					var element = Drinks.leds[i]; 
+					if(element.type=="round") 
+						element.on(); 
+				} 
+			} 
+		</script> 
+	</head> 
+	<body> 
+		<led id="led1" style="float:left;"></led>	 
+		<led id="led2" style="float:left;"></led>	 
+		<led id="led3" type="rect" style="float:left;"></led>	 
+		<led id="led4" style="float:left;"></led>	 
+		<led id="led5" style="float:left;"></led>	 
+		<input type="button" onclick="turnsOn();" value="click"/> 
+	</body> 
+</html> 

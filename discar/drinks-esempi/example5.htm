@@ -1,0 +1,10 @@
+<html> 
+		<head> 
+			<script type="text/javascript" src="Drinks.js"></script> 
+		</head> 
+		<body> 
+			<knob id="k1" onchange="gau.value=this.value; " min_range="-100" max_range="100"></knob> 
+			<display id="gau" min_range="-100" max_range="100"></display> 
+			<input type="button" onclick="gau.max_range=200; gau.min_range=-200; gau.radius=80; k1.radius=80;" value="Click"> 
+	 </body> 
+	</html> 

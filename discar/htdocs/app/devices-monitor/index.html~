@@ -1,6 +1,6 @@
 <html> 
 	<head> 
-		<script type="text/javascript"src="../Drinks.js"></script> 
+		<script type="text/javascript"src="Drinks.js"></script> 
 		<script>
 		function onAlert(){
 			document.getElementById('info').innerHTML='ARGH, very HOT!'; 

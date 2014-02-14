@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script type="text/Javascript" src="Drinks.js"></script>
+		
+	</head>
+	<body style="background-color:silver;">
+		<div style="background-image:url(darkdenim3.png); width:500px; height:400px; box-shadow:2px 2px 5px #333; border-radius:15px; ">
+		<div style="float:left; height:100px; width:100%;">
+			<switch type="toggle" label="relay 1" id="lsw1" style="float:left;" onchange="led1.toggle();"></switch> 
+			<switch type="toggle" label="relay 2" id="lsw2" style="float:left;" onchange="led2.toggle();"></switch> 
+			<switch type="toggle" label="relay 3" id="lsw3" style="float:left;" onchange="led3.toggle();"></switch> 
+			<switch type="toggle" label="relay 4" id="lsw4" style="float:left;" onchange="led4.toggle();"></switch> 
+			<switch type="toggle" label="relay 5" id="lsw5" style="float:left;" onchange="led5.toggle();"></switch> 
+			<switch type="toggle" label="relay 6" id="lsw6" style="float:left;" onchange="led6.toggle();"></switch> 
+			<switch type="toggle" label="relay 7" id="lsw7" style="float:left;" onchange="led7.toggle();"></switch> 
+			<switch type="toggle" label="relay 8" id="lsw8" style="float:left;" onchange="led8.toggle();"></switch> 
+		</div>
+		<div style="float:left; height:250px; width:100%;">
+			<slider type="analog" id="sl1" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl2" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl3" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl4" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl5" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl6" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl7" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+			<slider type="analog" id="sl8" style="float:left;" align="vertical" hide_grid=true width="60"></slider>
+		</div>
+		<div style="float:left; height:100px; width:100%;">
+			<led type="round" radius="10" id="led1" style="float:left; margin-left:12px;" ></led> 
+			<led type="round" radius="10" id="led2" style="float:left; margin-left:33px;" ></led> 
+			<led type="round" radius="10" id="led3" style="float:left; margin-left:33px;" ></led> 
+			<led type="round" radius="10" id="led4" style="float:left; margin-left:33px;" ></led> 
+			<led type="round" radius="10" id="led5" style="float:left; margin-left:33px;" ></led> 
+			<led type="round" radius="10" id="led6" style="float:left; margin-left:33px;" ></led> 
+			<led type="round" radius="10" id="led7" style="float:left; margin-left:33px;" ></led> 
+			<led type="round" radius="10" id="led8" style="float:left; margin-left:33px;" ></led> 
+
+		</div>
+		</div>
+	</body>
+
+</html>

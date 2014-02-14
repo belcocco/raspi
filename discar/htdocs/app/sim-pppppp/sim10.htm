@@ -1,0 +1,58 @@
+
+<html>
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+
+	</head> 
+	<body id="body" style="background-image:url(wood-texture.jpg);"> 
+			<display  id="g1" type="digital" style="float:left" label="Room1" value="35" onload="" min_range="-100"  significative="1" cipher="3" width="400" height="200" bgcolor="darkblue" color="lawngreen">
+				<led id="l1" color="magenta" value="1" x="350" y="170" onload="setInterval(function(){this.toggle();}.bind(this), 1000);"></led>
+			</display>
+			<display  id="g2" type="digital" style="float:left" label="Room2" value="40" onload="" min_range="-100"  significative="1" cipher="3" width="400" height="200" bgcolor="black" color="red">
+				<led id="l2" color="cyan" value="1" x="350" y="170" onload="setInterval(function(){this.toggle();}.bind(this), 1000);"></led>
+			</display>
+			<display  id="g3" type="digital" style="float:left" label="Room3" value="28" onload="" min_range="-100"  significative="1" cipher="3" width="400" height="200" bgcolor="669900" color="#333">
+				<led id="l2" color="yellow" value="1" x="350" y="170" onload="setInterval(function(){this.toggle();}.bind(this), 1000);"></led>
+			</display>
+			<div style="width:400px; height:20px; float:left; background-color:green; text-align:center;">State Ok</div>
+			<div style="width:400px; height:20px; float:left; background-color:red; text-align:center;">Alarm</div>
+			<div style="width:400px; height:20px; float:left; background-color:green; text-align:center;">State Ok</div>
+			<div style="width:380px; margin-left:10px; background-color:white; float:left; height:400px;  margin-top:20px; border:1px solid black;">
+				<div style="width:100%; float:left;">
+					<switch type="toggle" id="t1" width="100" style="float:left;" label="on/off"></switch>
+					<slider type="digital" width="250" id="s1" style="float:left; margin-top:20px;">
+						<option value="1">Cold</option>					
+						<option value="2">Normal</option>					
+						<option value="3">Hot</option>					
+					</slider>
+				</div>				
+				<knob type="analog" id="k1" label="conditioning 1" radius="70" min_range="-30" max_range="40" style="float:left; margin-left:60px; margin-top:-30px;"></knob>
+			</div>
+			<div style="width:380px; margin-left:20px;  background-color:white;  float:left; height:400px;  margin-top:20px; border:1px solid black;">
+				<div style="width:100%; float:left;">
+					<switch type="toggle" id="t2" width="100" style="float:left;" label="on/off"></switch>
+					<slider type="digital" width="250" id="s2" style="float:left; margin-top:20px;">
+						<option value="1">Cold</option>					
+						<option value="2">Normal</option>					
+						<option value="3">Hot</option>					
+					</slider>
+				</div>				
+				<knob type="analog" id="k2" label="conditioning 2" radius="70" min_range="-30" max_range="40" style="float:left; margin-left:60px; margin-top:-30px;"></knob>
+
+			</div>
+			<div style="width:380px; margin-left:20px;  background-color:white; float:left; height:400px;  margin-top:20px; border:1px solid black;">
+				<div style="width:100%; float:left;">
+					<switch type="toggle" id="t3" width="100" style="float:left;" label="on/off"></switch>
+					<slider type="digital" width="250" id="s3" style="float:left; margin-top:20px;">
+						<option value="1">Cold</option>					
+						<option value="2">Normal</option>					
+						<option value="3">Hot</option>					
+					</slider>
+				</div>				
+				<knob type="analog" id="k3" label="conditioning 3" radius="70" min_range="-30" max_range="40" style="float:left; margin-left:60px; margin-top:-30px;"></knob>
+
+			</div>
+
+		<div id="test"></div>
+	</body> 
+	</html> 

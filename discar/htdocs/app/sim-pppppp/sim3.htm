@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<script type="text/Javascript" src="Drinks.js"></script>
+		<script> 
+			var man = Drinks.createManager();
+			man.href="prova_man.php";
+			man.refresh="2";
+		</script>
+	</head>
+	<body style="background-image:url(polyester.png);">
+		<center>
+		<div style="height:400px; width:850px; background-image: linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -o-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -moz-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -webkit-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%);
+background-image: -ms-linear-gradient(left top, #777777 4%, #DDDDDD 30%, #777777 96%); box-shadow: 2px 2px 3px #333; border-radius:10px; ">
+			<div style="width:100%; height:300px; float:left;">
+				<display type="gauge" id="gau1" max_range="10" text="rpm" divisions="40" range_from="8" radius="80" range_to="10" style="margin-top:50px; margin-left:10px;  float:left;" onalert="led1.on();" onleavealert="led1.off();">
+					<led type="round" radius="5" id="led1" y="150" x="0"></led>			
+				</display>
+				<display type="gauge" id="gau2" max_range="220" radius="100" text="Km/h" divisions="110" style="margin-top:30px; float:left; margin-left:30px; "></display>
+				<display type="level" id="lev1" max_range="1" divisions="20" label="water" value="0.5" style="margin-top:30px; float:left; margin-left:30px; "></display>
+				<display type="level" id="lev2" max_range="1" divisions="20" label="oil" value="0.5" color="gold" style="margin-top:30px; float:left; margin-left:10px; "></display>
+				<display type="level" id="lev3" max_range="1" divisions="20" label="fuel" value="0.8" color="red" style="margin-top:30px; float:left; margin-left:10px; "></display>
+			</div>
+			<div style="float:left; width:100%; height:100px;">
+				<switch type="rocker" style="float:left;" id="rock1" width="70" height="100" onchange="if(this.value==1)Drinks.managers[0].start();"></switch>
+				<display type="digital" id="dig1" cipher="4" significative="1" width="200" height="100" max_range="220" color="lawngreen" bgcolor="black" style="margin-left:250px; float:left;"></display>
+			</div>
+		</div>
+		</center>
+	</body>
+</html>

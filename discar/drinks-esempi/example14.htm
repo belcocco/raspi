@@ -1,0 +1,15 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+	</head> 
+	<body> 
+		<knob type="digital" id="k1" radius="80" onchange="document.getElementById('test').innerHTML=this.value;"> 
+			<option value="1">good</option> 
+			<option value="2" selected>bad</option> 
+			<option value="3">ugly</option> 
+		</knob> 
+		<input type="button" onclick="k1.value='3';" value="click"> 
+		<input type="button" onclick="k1.selectedIndex=0;" value="click"> 
+		<div id="test"></div> 
+	</body> 
+</html> 

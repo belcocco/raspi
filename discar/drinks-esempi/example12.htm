@@ -1,0 +1,25 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+		<script>
+		function onAlert(){
+			document.getElementById('info').innerHTML='ARGH, very HOT!'; 
+			document.getElementById('info').style.backgroundColor='red'; 			
+			dis1.color='red'; 
+			l1.on();
+		}
+		function onLeaveAlert(){
+			document.getElementById('info').innerHTML='Ok, it\'s normal'; 
+			document.getElementById('info').style.backgroundColor='green'; 			
+			dis1.color='blue'; 
+			l1.off();
+		}
+		</script>
+		</head> 
+		<body > 
+			<knob id="k1" radius="50" style="float:left;" type="analog" onchange="dis1.value=this.value;" max_range="50"></knob>	 
+			<display id="dis1" type="thermo" style="float:left;" max_range="50" range_from="40" range_to="50" onalert="onAlert();" onleavealert="onLeaveAlert();"></display> 
+			<led id="l1" color="red" style="float:left;"></led> 
+			<div style="border:1px solid black; width:150px; height:20px; float:left; background-color:green;" id="info">Ok, it's normal</div> 
+		</body> 
+	</html> 

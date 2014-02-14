@@ -1,0 +1,18 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+		<script> 
+			function putInside(){ 
+				var disp = Drinks.createElement("display", {"id":"dis1", "type":"digital", "width":"40", "height":"20", "x":"100", "y":"160", "link":"true"}); 
+				gau.appendChild(disp); 
+				var ledd = Drinks.createElement("led", {"id":"led1", "radius":"5", "x":"112", "y":"190"}); 
+				gau.appendChild(ledd); 
+			} 
+		</script> 
+	</head> 
+	<body> 
+		<display id="gau" value="90" range_from="60" range_to="100"> 
+		</display> 
+		<input type="button" onclick="putInside()" value="press"> 
+	</body> 
+</html>

@@ -1,0 +1,22 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+		<script> 
+			var man = Drinks.createManager(); 
+			man.href='server19.php'; 
+			man.input=new Array("an1", "an2", "an3"); 
+			man.start(); 
+			var man2 = Drinks.createManager(); 
+			man2.href='server19.php'; 
+			man2.start(); 
+		</script> 
+	</head> 
+	<body id="body"> 
+		<knob type="analog" id="an1"></knob> 
+		<knob type="analog" id="an2"></knob> 
+		<knob type="analog" id="an3"></knob> 
+		<display type="analog" id="dis1"></display>		 
+		<display type="analog" id="dis2"></display>		 
+		<display type="analog" id="dis3"></display>		 
+	</body> 
+</html> 

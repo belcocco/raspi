@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script type="text/Javascript" src="Drinks.js"></script>
+	</head>
+	<body style="background-image:url(polyester.png);">
+		<div style="height:400px; width:98%; float:left; border:5px outset gray; background-color:silver;">
+			<div style="width:220px; float:left; ">
+				<display type="gauge" radius="100" style="float:left; position:relative;" id="gau1" max_range="6000" text="rpm" onchange="document.getElementById('t1').value=this.value;">
+					<input type="text" id="t1" style="position:absolute; z-index:5; top:170px; width:40px; left:100px;">
+				</display>
+				<display type="level" id="lev1" align="horizontal" style="float:left; margin-left:10px;" label="load" max_range="5"></display>
+			</div>
+			<display type="digital" id="dig" width="200" height="100" cipher="3" significative="1" style="float:left; margin-left:30px; margin-top:20px;" label="Speed"></display>
+			<div style="float:left; margin-left:10px;">
+				<display type="level" id="lev2" style="float:left;" width="150" label="accelerator %"></display>
+				<display type="thermo" id="temp1" style="float:left;" label="Air Temp" color="red" max_range="140" divisions="35"></display>
+				<display type="thermo" id="temp2" style="float:left;" label="Motor Temp" color="red" max_range="140" divisions="35"></display>
+				<display type="thermo" id="temp3" style="float:left;" label="Gas Temp" color="red" max_range="140" divisions="35"></display>
+				<display type="level" id="lev3" style="float:left;" label="Rail Pres"  max_range="2000"></display>
+				<display type="level" id="lev4" style="float:left;" label="Turbo Pres"  max_range="2000"></display>
+				<display type="level" id="lev5" style="float:left;" label="Condit Pres"  max_range="2000"></display>
+			</div>
+			<div style="float:right; font-size:30px; margin-top:70px; margin-right:20px; color: #222; text-shadow: 0px 2px 3px #555;">CONTROL PANEL</div>
+			<switch type="circle" id="cir" style="float:right; margin-right:100px; margin-top:50px;" label="Start"></display>
+		</div>
+	</body>
+</html>

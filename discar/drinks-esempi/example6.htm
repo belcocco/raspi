@@ -1,0 +1,12 @@
+<html> 
+		<head> 
+			<script type="text/javascript" src="Drinks.js"></script> 
+		</head> 
+		<body> 
+			<knob id="k1" name="hello" onchange="gau.value=this.value; " min_range="-100" max_range="100" style="float:left;"></knob> 
+			<display id="gau" name="hello" min_range="-100" max_range="100" style="float:left;"></display> 
+			<display id="gau2" class="bye" min_range="-100" max_range="100" style="float:left;"></display> 
+			<input type="button" onclick="alert(Drinks.getElementsByName('hello').length)" value="Click"> 
+			<input type="button" onclick="alert(Drinks.getElementsByClassName('bye').length)" value="Click"> 
+		 </body> 
+</html> 	

@@ -1,0 +1,16 @@
+<html> 
+	<head> 
+		<script type="text/javascript"src="Drinks.js"></script> 
+	</head> 
+	<body > 
+		<form action="server17.php" method="post"> 
+			<display id="dis1" type="analog" name="dis1" style="float:left;" max_range="2" text="A"></display> 
+			<display id="dis2" type="analog" name="dis2" style="float:left;" max_range="50" text="V"></display>	 
+			<input type="submit"> 
+		</form> 
+		<div style="width:100%; float:left;"> 
+			<knob type="analog" radius="80" style="float:left;" id="ka" onchange="dis1.value = this.value;" max_range="2"></knob> 
+			<knob type="analog" radius="80" style="float:left;" id="kv" onchange="dis2.value = this.value;" max_range="50"></knob> 
+		</div>	 
+	</body> 
+</html>

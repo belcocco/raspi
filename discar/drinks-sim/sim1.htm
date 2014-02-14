@@ -1,0 +1,104 @@
+<html>
+	<head>
+		<script type="text/Javascript" src="Drinks.js"></script>
+		<script>
+			function sim(){
+				var i=0;
+				var end=false;
+
+				var levelsim = function(){
+					if(Drinks.displays[i] && Drinks.displays[i].type=="level")
+						setTimeout(function(){Drinks.displays[i].value=100; i++;levelsim();}, 500);
+					else{
+						i=0;
+						ledsim();
+					}
+				}
+				var ledsim = function(){
+					if(Drinks.leds[i] && Drinks.leds[i].type=="round")
+						setTimeout(function(){Drinks.leds[i].on(); i++; ledsim();}, 500);
+					else{
+						i--;
+						ledsim2();
+					}
+				}			
+				
+				var ledsim2 = function(){
+					if(Drinks.leds[i] && Drinks.leds[i].type=="round")
+						setTimeout(function(){Drinks.leds[i].off(); i--; ledsim2();}, 500);
+					if(i<0){
+						i=0;	
+						if(Drinks.leds[i].color=="red"){
+							for(var j in Drinks.leds){
+								Drinks.leds[j].color="blue";
+							}
+						}
+						else if(Drinks.leds[i].color=="blue"){
+							//alert("fine");
+							end = true;
+								
+						}						
+						else{
+							for(var j in Drinks.leds){
+								Drinks.leds[j].color="red";
+							}
+						}
+						if(!end)
+							ledsim();
+					}
+				}
+				levelsim();			
+			}
+			
+		</script>
+		<style>
+			led.ledclass{
+				 float:left;	
+				margin-top:50px;
+			}
+			#test1{
+				position: absolute;
+				bottom: 30px;
+				right: 50px;
+				font-family: verdana;
+				font-size: 35px;
+				font-weight: bold;
+				text-shadow: 0px 1px 1px #eee;
+			}
+			footer{
+				float: right;
+				text-align: right;
+				width: 1000px;
+				height: 50px;
+				margin-right: 300px;
+			}
+			img{
+				float: right;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body style="background-image:url(polyester.png);">
+	<div style="position: relative; width: 730px; height: 305px; margin-left: auto; margin-right: auto; margin-top: 100px; border: 2px solid #333; box-shadow: 0px 1px 5px #333; border-radius: 15px; background-color: #bbb;">
+		<display  type="level" id="l1" color="orange" style="float:left;"></display>
+		<display  type="level" id="l2" color="red" style="float:left;"></display>
+		<display  type="level" id="l3" color="green" style="float:left;"></display>
+		<display  type="level" id="l4" color="blue" style="float:left;"></display>
+		<display  type="level" id="l5" color="yellow" style="float:left;"></display>
+		<display  type="level" id="l6" color="cyan" style="float:left;"></display>
+		<display  type="level" id="l7" color="magenta" style="float:left;" onchange=""></display>
+		<div style="width:100%; float:left;">
+			<switch  type="toggle" id="lsw" style="float:left;" width=100 onchange="if(this.value==1){sim();}"></switch>
+			<led type="round" id="led1" radius=10 class="ledclass"></led>
+			<led type="round" id="led2" radius=10 class="ledclass"></led>
+			<led type="round" id="led3" radius=10 class="ledclass"></led>
+			<led type="round" id="led4" radius=10 class="ledclass"></led>
+			<led type="round" id="led5" radius=10 class="ledclass"></led>
+			<led type="round" id="led6" radius=10 class="ledclass"></led>
+			<led type="round" id="led7" radius=10 class="ledclass"></led>
+		</div>
+		<div id="test1">Control Panel</div>
+	</div>
+	<footer>Drinks Demo Control Panel by Goincompany.com <img src="drinkslogo.png" width="20"></footer>
+	</body>
+</html>
